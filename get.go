@@ -64,3 +64,12 @@ func GetByteList(path string) []byte {
 func GetByteSize(path string) *big.Int {
 	return conf.GetByteSize(path)
 }
+
+func GetKeys(path string) []string {
+	nodes := conf.GetNode(path)
+	if nodes.IsObject() {
+		return nodes.GetObject().GetKeys()
+	}
+
+	return nil
+}
