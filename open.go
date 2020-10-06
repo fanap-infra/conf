@@ -26,7 +26,6 @@ func openFile(fileName string) (err error) {
 		}
 	}()
 
-	fmt.Println(fileName)
 	conf = configuration.LoadConfig(fileName)
 	return
 }
