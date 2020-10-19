@@ -20,8 +20,10 @@ import (
 )
 
 func main() {
-	if err := conf.Open("stream.conf"); err != nil {
+	if fileName, err := conf.Open(os.Getenv("EXAMPLE_CONF"), "stream.dev.conf", "stream.conf"); err != nil {
 		fmt.Printf("Error: %v\n", err)
+	} else {
+		fmt.Printf("Load config from %s", fileName)
 	}
 
 	fmt.Println(conf.GetString("rtsp.timeout.txt"))

@@ -9,14 +9,14 @@ import (
 
 var conf *configuration.Config
 
-func Open(fileNames ...string) (err error) {
-	for _, f := range fileNames {
-		if err = openFile(f); err == nil {
+func Open(fileNames ...string) (fileName string, err error) {
+	for _, fileName = range fileNames {
+		if err = openFile(fileName); err == nil {
 			return
 		}
 	}
 
-	return errors.New("Didn't open or found Config File")
+	return "", errors.New("Didn't open or found Config File")
 }
 
 func openFile(fileName string) (err error) {
