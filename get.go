@@ -67,6 +67,9 @@ func GetByteSize(path string) *big.Int {
 
 func GetKeys(path string) []string {
 	nodes := conf.GetNode(path)
+	if nodes == nil {
+		return []string{}
+	}
 	if nodes.IsObject() {
 		return nodes.GetObject().GetKeys()
 	}
